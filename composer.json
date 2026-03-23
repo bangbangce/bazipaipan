@@ -1,0 +1,35 @@
+{
+    "name": "bazipaipan/bazipaipan",
+    "description": "PHP八字排盘插件 - 根据出生信息计算八字命盘，支持公农历转换、真太阳时计算",
+    "type": "library",
+    "keywords": ["bazi", "八字", "排盘", "命理", "bazipaipan", "lunar", "农历", "干支", "四柱", "solar-time"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shitou",
+            "email": "fanlei@bangbangce.com"
+        }
+    ],
+    "homepage": "https://github.com/bangbangce/bazipaipan",
+    "support": {
+        "issues": "https://github.com/bangbangce/bazipaipan/issues",
+        "source": "https://github.com/bangbangce/bazipaipan"
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bazi\\": "src/"
+        },
+        "classmap": ["Bazi.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bazi\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
