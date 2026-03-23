@@ -21,13 +21,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Bazi\\": "src/"
+            "Bazipaipan\\": "src/"
         },
         "classmap": ["Bazi.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Bazi\\Tests\\": "tests/"
+            "Bazipaipan\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bazi;
+namespace Bazipaipan;
 
 /**
  * 八字排盘插件入口类

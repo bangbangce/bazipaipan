@@ -1,6 +1,6 @@
 <?php
 
-namespace Bazi;
+namespace Bazipaipan;
 
 /**
  * 农历与公历转换类
@@ -215,6 +215,16 @@ class Lunar
      */
     public static function toSolar($lunarYear, $lunarMonth, $lunarDay, $isLeapMonth = false)
     {
+        if ($lunarYear < 1900 || $lunarYear > 2100) {
+            throw new \InvalidArgumentException('农历年份必须在1900-2100年之间');
+        }
+        if ($lunarMonth < 1 || $lunarMonth > 12) {
+            throw new \InvalidArgumentException('农历月份必须在1-12之间');
+        }
+        if ($lunarDay < 1 || $lunarDay > 30) {
+            throw new \InvalidArgumentException('农历日期必须在1-30之间');
+        }
+
         $offset = 0;
         $leap = self::leapMonth($lunarYear);
         $isLeap = false;
@@ -267,6 +277,16 @@ class Lunar
      */
     public static function toLunar($solarYear, $solarMonth, $solarDay)
     {
+        if ($solarYear < 1900 || $solarYear > 2100) {
+            throw new \InvalidArgumentException('公历年份必须在1900-2100年之间');
+        }
+        if ($solarMonth < 1 || $solarMonth > 12) {
+            throw new \InvalidArgumentException('公历月份必须在1-12之间');
+        }
+        if ($solarDay < 1 || $solarDay > 31) {
+            throw new \InvalidArgumentException('公历日期必须在1-31之间');
+        }
+
         // 基准日期：1900年1月31日（农历1900年正月初一）
         $baseDate = new \DateTime('1900-01-31');
         $objDate = new \DateTime(sprintf('%04d-%02d-%02d', $solarYear, $solarMonth, $solarDay));

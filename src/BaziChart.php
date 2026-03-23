@@ -1,6 +1,6 @@
 <?php
 
-namespace Bazi;
+namespace Bazipaipan;
 
 /**
  * 八字排盘核心类
@@ -215,6 +215,7 @@ class BaziChart
         $this->isLunar = isset($params['isLunar']) ? (bool)$params['isLunar'] : false;
         $this->isSolarTime = isset($params['isSolarTime']) ? (bool)$params['isSolarTime'] : false;
         $this->birthPlace = isset($params['birthPlace']) ? $params['birthPlace'] : '';
+        $this->isLeapMonth = isset($params['isLeapMonth']) ? (bool)$params['isLeapMonth'] : false;
 
         // 执行初始化和计算
         $this->initLocation();
@@ -261,7 +262,6 @@ class BaziChart
             $this->lunarYear = $this->birthYear;
             $this->lunarMonth = $this->birthMonth;
             $this->lunarDay = $this->birthDay;
-            $this->isLeapMonth = isset($this->isLeapMonth) ? $this->isLeapMonth : false;
 
             // 农历转公历
             $solar = Lunar::toSolar($this->lunarYear, $this->lunarMonth, $this->lunarDay, $this->isLeapMonth);

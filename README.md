@@ -31,7 +31,7 @@ composer require bazipaipan/bazipaipan
 <?php
 require 'vendor/autoload.php';
 
-use Bazi\Bazi;
+use Bazipaipan\Bazi;
 
 $chart = Bazi::create([
     'name' => '张三',
@@ -114,7 +114,7 @@ $location = Bazi::getCityLocation('北京');
 将 `bazi` 目录复制到 `extend/` 目录下即可直接使用：
 
 ```php
-use Bazi\Bazi;
+use Bazipaipan\Bazi;
 
 $chart = Bazi::create([...]);
 ```
@@ -126,7 +126,7 @@ composer require bazipaipan/bazipaipan
 ```
 
 ```php
-use Bazi\Bazi;
+use Bazipaipan\Bazi;
 
 $chart = Bazi::create([...]);
 ```

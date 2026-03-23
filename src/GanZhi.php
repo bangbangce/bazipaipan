@@ -1,6 +1,6 @@
 <?php
 
-namespace Bazi;
+namespace Bazipaipan;
 
 /**
  * 天干地支计算类

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bazi;
+namespace Bazipaipan;
 
 /**
  * 真太阳时计算类
@@ -496,22 +496,24 @@ class SolarTime
         // 将北京时间转换为总秒数，并应用修正
         $totalSeconds = $hour * 3600 + $minute * 60 + $second + $totalCorrection * 60;
 
+        // 处理跨日情况：使用 DateTime 来正确处理日期加减
+        if ($totalSeconds < 0) {
+            // 计算需要回退的天数和剩余秒数
+            $daysToSubtract = (int)ceil(abs($totalSeconds) / 86400);
+            $date->modify('-' . $daysToSubtract . ' days');
+            $totalSeconds += $daysToSubtract * 86400;
+        } elseif ($totalSeconds >= 86400) {
+            // 计算需要前进的天数和剩余秒数
+            $daysToAdd = (int)floor($totalSeconds / 86400);
+            $date->modify('+' . $daysToAdd . ' days');
+            $totalSeconds -= $daysToAdd * 86400;
+        }
+
         // 计算真太阳时的时、分、秒
         $solarHour = (int)($totalSeconds / 3600);
         $remainingSeconds = $totalSeconds % 3600;
         $solarMinute = (int)($remainingSeconds / 60);
         $solarSecond = $remainingSeconds % 60;
-
-        // 处理跨日情况
-        if ($solarHour < 0) {
-            // 如果小时为负数，说明是前一天
-            $solarHour += 24;
-            $date->modify('-1 day');
-        } elseif ($solarHour >= 24) {
-            // 如果小时超过24，说明是后一天
-            $solarHour -= 24;
-            $date->modify('+1 day');
-        }
 
         return [
             'year' => (int)$date->format('Y'),
