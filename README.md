@@ -1,4 +1,4 @@
-# PHP八字排盘插件 (BaziPaipan)
+# 专业的PHP八字排盘插件 (BaziPaipan)
 
 [![Packagist](https://img.shields.io/packagist/v/bazipaipan/bazipaipan.svg)](https://packagist.org/packages/bazipaipan/bazipaipan)
 [![License](https://img.shields.io/packagist/l/bazipaipan/bazipaipan.svg)](https://github.com/bangbangce/bazipaipan/blob/main/LICENSE)
